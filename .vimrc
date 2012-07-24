@@ -4,7 +4,7 @@ filetype plugin indent on
 set nocompatible
 set modelines=0
 
-set guifont=Courier\ New
+set guifont=Menlo
 let mapleader = ","
 
 set tabstop=4
@@ -108,5 +108,5 @@ map <leader><tab> :tabn <CR>
 map <leader>p<tab> :tabp <CR>
 
 set t_Co=256
-colorscheme desert
+colorscheme pablo
 syntax on
