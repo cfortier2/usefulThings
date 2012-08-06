@@ -4,7 +4,7 @@ filetype plugin indent on
 set nocompatible
 set modelines=0
 
-set guifont=Menlo
+set guifont=Lucida\ Console
 let mapleader = ","
 
 set tabstop=4
