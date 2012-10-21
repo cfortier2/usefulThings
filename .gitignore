@@ -1,3 +1,4 @@
 # ignore everything but the vimrc
 *
-!.vimrc
+!.vim
+!.vim*
