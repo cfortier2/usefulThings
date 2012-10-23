@@ -9,12 +9,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'gmarik/sudo-gui.vim'
+Bundle 'golden-ratio'
+Bundle 'nu42dark-color-scheme'
+colorscheme nu42dark
 
 filetype plugin indent on     " required!
 
@@ -29,7 +26,6 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
-set nocompatible
 set modelines=0
 
 set guifont=Lucida\ Console
@@ -49,15 +45,12 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-" set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set formatoptions=qrn1
 
-" nnoremap / /\v
-" vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
@@ -71,11 +64,6 @@ set laststatus=2
 
 " Display the working git branch in the status bar
 set statusline=%F%m%r%h%w
-
-" set statusline+=%{fugitive#statusline()}
-" map <F2> :NERDTreeToggle<CR>
-" True FS, (hide scrollbars
-
 set guioptions-=L
 set guioptions-=r
 set guioptions-=t
@@ -94,15 +82,15 @@ set nowrap
 
 set norestorescreen
 
-if has("terminfo")
-  let &t_Co=8
-  let &t_Sf="\e[3%p1%dm"
-  let &t_Sb="\e[4%p1%dm"
-else
-  let &t_Co=8
-  let &t_Sf="\e[3%dm"
-  let &t_Sb="\e[4%dm"
-endif
+" if has("terminfo")
+"   let &t_Co=8
+"   let &t_Sf="\e[3%p1%dm"
+"   let &t_Sb="\e[4%p1%dm"
+" else
+"   let &t_Co=8
+"   let &t_Sf="\e[3%dm"
+"   let &t_Sb="\e[4%dm"
+" endif
 
 "nnoremap <leader>ft Vatzf
 "nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
@@ -135,12 +123,10 @@ augroup END
 map <leader><tab> :tabn <CR>
 map <leader>p<tab> :tabp <CR>
 
-set t_Co=256
-colorscheme pablo
+"set t_Co=256
 syntax on
 
-set background=dark
 highlight clear
-if exists("syntax_on")
-  syntax reset
-endif
+"if exists("syntax_on")
+"  syntax reset
+"endif
