@@ -1,10 +1,3 @@
-set guifont=Lucida\ Console
-
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
 set nocompatible
 set encoding=utf-8
 set backspace=indent,eol,start
@@ -24,37 +17,61 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdtree'
 Bundle 'sudo.vim'
+Bundle 'golden-ratio'
 Bundle 'nu42dark-color-scheme'
 colorscheme nu42dark
 
 " Syntax
 filetype plugin indent on
 syntax on
+set guifont=Lucida\ Console
 
-" Numered lines
-set number
+" Editor tweaks
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set gdefault
+
+" disable auto commenting
+" makes copy-paste a bit easier
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Search options
 set smartcase
 set incsearch
 set hlsearch
+set showmatch
 
 " Folding
 set foldmethod=syntax
 set foldlevelstart=3
 
+" Beeping
+set visualbell t_vb=
+
+" UI enhancements
+set number
+set ttyfast
+set ruler
+set formatoptions=qrn1
+set scrolloff=3
+" set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+
 " Status line
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
 
-" Beeping
-set visualbell t_vb=
-
 " GVIM
 if has('gui_running')
-  set lines=70 columns=190
-  set guioptions-=T " No Toolbar
-  set guioptions-=m " No Menubar
+    set lines=70 columns=190
+    set guioptions-=T " No Toolbar
+    set guioptions-=m " No Menubar
 endif
 
 " Tab navigation
@@ -77,6 +94,7 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 
 " Search/replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
 " SVN commit current file
 nnoremap <Leader>c :!svn commit % -m ""<Left>
 
@@ -84,22 +102,23 @@ nmap <Leader>\ :noh<CR>
 
 let s:sites = {'amo':'actionmethod', 'network':'network'}
 function! Upload(box)
-  for entry in items(s:sites)
-    if match(expand('%:p'), '/'.entry[0].'/') > -1
-      let a:target=substitute(expand('%:p'), '.*/'.entry[0].'/', 'root@dev'.a:box.':/var/www/vhosts/'.entry[1].'/sandbox/',"")
-      silent exe '!rsync -az -e ssh --exclude "*.swp" % '.a:target
-      break
-    endif
-  endfor
+    for entry in items(s:sites)
+        if match(expand('%:p'), '/'.entry[0].'/') > -1
+            let a:target=substitute(expand('%:p'), '.*/'.entry[0].'/', 'root@dev'.a:box.':/var/www/vhosts/'.entry[1].'/sandbox/',"")
+            silent exe '!rsync -az -e ssh --exclude "*.swp" % '.a:target
+            break
+        endif
+    endfor
 endfunction
 nnoremap <silent> <F10> :call Upload(10)<CR>
+
 " Windows
 if has('win32') || has('win64')
-  set lines=60 columns=120
+    set lines=60 columns=120
     if has('gui_win32')
-      set guioptions-=T " No Toolbar
-      set guioptions-=m " No Menubar
-      set guifont=Consolas:h10
+        set guioptions-=T " No Toolbar
+        set guioptions-=m " No Menubar
+        set guifont=Consolas:h10
     endif
     let g:PowerLine_symbols = 'compatible'
     cd ~
