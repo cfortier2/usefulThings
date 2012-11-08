@@ -38,7 +38,8 @@ set gdefault
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Search options
-set smartcase
+" set smartcase
+set ignorecase
 set incsearch
 set hlsearch
 set showmatch
