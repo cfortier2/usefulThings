@@ -1,0 +1,16 @@
+# A small script to update this distro and mount any shared folders...
+
+#!/bin/bash
+
+echo "Checking for distro upgrades... "
+  sudo apt-get dist-upgrade
+
+echo "Updating and upgrading Ubuntu's packages... "
+  sudo apt-get upgrade
+  sudo apt-get update
+
+echo "Cleaning... "
+  sudo apt-get clean
+  sudo apt-get autoremove
+
+exit
