@@ -1,3 +1,8 @@
+# ignore everything
 *
-!.vimrc
+
+# except these dirs
 !scripts/*
+
+# nor these files
+!.vimrc
