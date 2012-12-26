@@ -1,4 +1,3 @@
-# ignore everything but the vimrc
 *
 !.vimrc
-!auto-apt-get
+!scripts/*
